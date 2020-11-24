@@ -316,15 +316,12 @@ if (SUBSURFACE_TARGET_EXECUTABLE MATCHES "MobileExecutable")
 	set(CMAKE_MODULE_PATH ${CMAKE_CURRENT_SOURCE_DIR}/cmake/ ${CMAKE_MODULE_PATH} ${ECM_MODULE_PATH})
 	set(BREEZEICONS_DIR mobile-widgets/3rdparty/breeze-icons/)
 
-#	include(KDEInstallDirs)
-#	include(KDECompilerSettings)
-#	include(KDECMakeSettings)
-
-#	set(CMAKE_CXX_STANDARD 11)
-#	set(CMAKE_CXX_EXTENSIONS OFF)
 	SET(QML_IMPORT_PATH ${QML_IMPORT_PATH} ${CMAKE_SOURCE_DIR}/mobile-widgets/3rdparty/kirigami/src ${CMAKE_SOURCE_DIR}/mobile-widgets/qml)
 	add_subdirectory(mobile-widgets/3rdparty)
 
+	# Tell Qt Creator where to find QML files.
+	#   (The build process will work without this, but no code completion etc..)
+	set(QML_IMPORT_PATH "${QML_DIRS}" "${CMAKE_CURRENT_SOURCE_DIR}/mobile-widgets/qml" "${CMAKE_CURRENT_SOURCE_DIR}/mobile-widgets/3rdparty/kirigami" CACHE STRING "" FORCE)
 	include_directories(${CMAKE_SOURCE_DIR}/mobile-widgets/3rdparty/kirigami/src)
 	include(${CMAKE_SOURCE_DIR}/mobile-widgets/3rdparty/kirigami/KF5Kirigami2Macros.cmake)
 
