@@ -62,8 +62,13 @@ void exit_ui()
 	free((void *)existing_filename);
 }
 
+#include <QDirIterator>
 void run_ui()
 {
+	QDirIterator it(":", QDirIterator::Subdirectories);
+	while (it.hasNext()) {
+	    qDebug() << it.next();
+	}
 #ifdef SUBSURFACE_MOBILE
 #if defined(Q_OS_ANDROID)
 	if (getAndroidHWInfo().contains("/OnePlus/")) {
