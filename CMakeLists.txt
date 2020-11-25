@@ -332,6 +332,7 @@ if (SUBSURFACE_TARGET_EXECUTABLE MATCHES "MobileExecutable")
 #	include_directories(${CMAKE_SOURCE_DIR}/mobile-widgets/qml/kirigami/src/libkirigami)
 #	add_definitions(-DKIRIGAMI_BUILD_TYPE_STATIC)
 	qt5_add_resources(MOBILE_RESOURCES mobile-widgets/qml/mobile-resources.qrc)
+	qt5_add_resources(MOBILE_RESOURCES mobile-widgets/3rdparty/icons.qrc)
 #	qt5_add_resources(MOBILE_RESOURCES mobile-widgets/qml/kirigami/kirigami.qrc)
 	#qt5_add_resources(MOBILE_RESOURCES mobile-widgets/3rdparty/kirigami/kirigami.qrc)
 
