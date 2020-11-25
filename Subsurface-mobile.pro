@@ -297,7 +297,7 @@ HEADERS += \
 	profile-widget/diverectitem.h \
 	profile-widget/divetextitem.h
 
-include(mobile-widgets/qml/kirigami/kirigami.pri)
+include(mobile-widgets/3rdparty/kirigami/kirigami.pri)
 
 RESOURCES += mobile-widgets/qml/mobile-resources.qrc \
 		map-widget/qml/map-widget.qrc
@@ -346,7 +346,7 @@ android {
 		../install-root-$${QT_ARCH}/include/openssl \
 		. \
 		core \
-		mobile-widgets/qml/kirigami/src/libkirigami
+		mobile-widgets/3rdparty/kirigami/src/libkirigami
 }
 
 ios {
@@ -377,7 +377,7 @@ ios {
 		../install-root/ios/include/openssl \
 		. \
 		./core \
-		./mobile-widgets/qml/kirigami/src/libkirigami \
+		./mobile-widgets/3rdparty/kirigami/src/libkirigami \
 		/usr/include/libxml2
 
 }
