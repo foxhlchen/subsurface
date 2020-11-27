@@ -23,7 +23,8 @@
 #include "core/downloadfromdcthread.h"
 #include "core/subsurfacestartup.h" // for testqml
 #include "qt-models/diveimportedmodel.h"
-#include "kirigamiplugin.h"
+//#include "kirigamiplugin.h"
+#include <QtPlugin>
 #else
 #include "desktop-widgets/mainwindow.h"
 #endif
@@ -40,7 +41,9 @@ QObject *qqWindowObject = NULL;
 static void register_qml_types(QQmlEngine *);
 static void register_meta_types();
 
+#ifdef SUBSURFACE_MOBILE
 Q_IMPORT_PLUGIN(KirigamiPlugin)
+#endif
 
 void init_ui()
 {
@@ -67,12 +70,12 @@ void run_ui()
 {
 	QDirIterator it(":", QDirIterator::Subdirectories);
 	while (it.hasNext()) {
-	    qDebug() << it.next();
+		qDebug() << it.next();
 	}
 #ifdef SUBSURFACE_MOBILE
 #if defined(Q_OS_ANDROID)
 	// according to the documentation this is required on Android, but nowhere else
-	KirigamiPlugin::getInstance().registerTypes();
+	//KirigamiPlugin::getInstance().registerTypes();
 	// work around an odd interaction between the OnePlus flavor of Android and Qt font handling
 	if (getAndroidHWInfo().contains("/OnePlus/")) {
 		QFontDatabase db;
