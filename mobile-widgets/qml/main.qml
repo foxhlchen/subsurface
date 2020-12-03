@@ -22,7 +22,7 @@ Kirigami.ApplicationWindow {
 	font: Qt.application.font
 
 	pageStack.globalToolBar.style: Kirigami.ApplicationHeaderStyle.Breadcrumb
-	pageStack.globalToolBar.showNavigationButtons: (Kirigami.ApplicationHeaderStyle.ShowBackButton | Kirigami.ApplicationHeaderStyle.ShowForwardButton)
+	pageStack.globalToolBar.showNavigationButtons: Kirigami.ApplicationHeaderStyle.NoNavigationButtons
 	pageStack.globalToolBar.minimumHeight: 0
 	pageStack.globalToolBar.preferredHeight: Math.round(Kirigami.Units.gridUnit * (Qt.platform.os == "ios" ? 2 : 1.5))
 	pageStack.globalToolBar.maximumHeight: Kirigami.Units.gridUnit * 2
