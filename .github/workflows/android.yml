@@ -21,6 +21,7 @@ jobs:
       run: |
         # this is rather awkward, but it allows us to use the preinstalled
         # Android and Qt versions with relative paths
+        echo "$GITHUB_WORKSPACE/.."
         cd $GITHUB_WORKSPACE/..
         ln -s /android/5.15.* .
         ln -s /android/build-tools .
@@ -29,7 +30,8 @@ jobs:
         ln -s /android/platform-tools .
         ln -s /android/platforms .
         ln -s /android/tools .
-        ls -l
+        ls -l /__w/subsurface
+        ls -l /__w/subsurface/5.15.1/android/lib
         git config --global user.email "ci@subsurface-divelog.org"
         git config --global user.name "Subsurface CI"
         bash -x ./subsurface/packaging/android/qmake-build.sh
